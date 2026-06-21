@@ -151,21 +151,29 @@ distinguishes "no review at all" from "reviewed by another engineer only."
 
 ## Step 5: Report
 
-Output conversationally, not as a rigid template — this is meant to be read and
-acted on, not filed away. For each flagged PR include:
+Lead with a one-line headline of the result (e.g. "3 of 9 user-facing PRs shipped
+without design review"), then present the flagged PRs as a **Markdown table** so
+they're easy to scan. Use these columns, one row per flagged PR:
 
-- PR number, title, link
-- Author
-- What actually changed (be specific — "padding increased on pricing cards and
-  button copy changed from X to Y", not "UI changes")
-- Who reviewed it, if anyone
-- A one-line note on confidence/borderline-ness if it's a bugfix-shaped change
+| Column | What goes in it |
+|--------|-----------------|
+| **PR** | Number + title as a link, e.g. `[#1487 Tighten pricing card spacing](url)` |
+| **Author** | The author's `@handle` |
+| **What changed** | Specific, user-visible change — "padding 24px→12px on pricing cards, CTA copy 'Get started'→'Start free trial'", not "UI changes". Keep it to one tight phrase so the row stays readable. |
+| **Reviewed by** | `@handle`s who reviewed, or `none (merged unreviewed)`. Distinguish "no review at all" from "engineers only" — never list a designer here (if one reviewed, it wouldn't be flagged). |
+| **Note** | Empty for clear-cut cases; for borderline ones, a short flag like `borderline — reads as bugfix` or `process gap — no UI signal but unreviewed`. |
 
-End with a short summary count ("4 PRs flagged out of 32 merged in this window"
-— or, if scoped, "4 PRs flagged out of 9 merged PRs touching `Checkout/` in this
-window") and, if useful, a callout if the same author or same area of the
-codebase shows up repeatedly — that's a pattern worth surfacing, not just a
-list of one-offs.
+Keep cell text concise — if a change needs more explanation than a phrase, put the
+short version in the table and add a sentence below it. Don't let long cells wrap
+the table into something unreadable.
+
+After the table, write a short prose summary: the count ("4 PRs flagged out of 32
+merged in this window" — or, if scoped, "4 flagged out of 9 merged PRs touching
+`Checkout/`"), plus a callout if the same author or same area of the codebase
+shows up repeatedly — that's a pattern worth surfacing, not just a list of
+one-offs. The table is for scanning; the prose is for the "so what."
+
+If there are zero flagged PRs, skip the table and just say so plainly.
 
 ## Important notes
 

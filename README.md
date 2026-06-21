@@ -104,42 +104,21 @@ The audit is conversational, not a rigid template. A typical run looks like this
 >
 > Got it. Designer list for this audit: `@jdoe`, `@priya-design`.
 
-**2. Then it reports the flagged PRs:**
+**2. Then it reports the flagged PRs as a scannable table:**
 
-> Audited **32 merged PRs** in `acme/web` from the last 2 weeks. After filtering
-> out non-UI changes (backend, tests, deps, pure refactors), **9 touched
-> something user-facing**. Of those, **3 shipped with no designer involvement** —
-> flagging them below.
+> **3 of 9 user-facing PRs shipped without design review.** Audited 32 merged PRs
+> in `acme/web` over the last 2 weeks; 9 touched something user-facing after
+> filtering out backend, tests, deps, and pure refactors.
 >
-> ---
+> | PR | Author | What changed | Reviewed by | Note |
+> |----|--------|--------------|-------------|------|
+> | [#1487 Tighten pricing card spacing](https://github.com/acme/web/pull/1487) | @sam-eng | Padding `24px`→`12px` on pricing cards; CTA copy "Get started"→"Start free trial" across all tiers | @another-eng | — |
+> | [#1492 Fix checkout button alignment](https://github.com/acme/web/pull/1492) | @sam-eng | Re-centers primary checkout button, height `+8px` — changes its prominence | none (merged unreviewed) | borderline — reads as bugfix |
+> | [#1501 Update empty-state copy](https://github.com/acme/web/pull/1501) | @riley-eng | Dashboard empty state "No data yet"→"Nothing here — connect a source to get started" + new secondary link | @another-eng | — |
 >
-> **🚩 [#1487 — Tighten spacing on pricing cards](https://github.com/acme/web/pull/1487)**
-> *Author: @sam-eng · merged Jun 18*
-> Reduced card padding from `24px` to `12px` and changed the CTA label from
-> "Get started" to "Start free trial" across all three pricing tiers. Reviewed
-> and approved by **@another-eng** — no designer looked at it. This is a
-> deliberate visual + copy change to a high-traffic conversion surface.
->
-> **🚩 [#1492 — Fix checkout button alignment](https://github.com/acme/web/pull/1492)**
-> *Author: @sam-eng · merged Jun 19*
-> Framed as a bug fix, but it re-centers the primary checkout button and bumps
-> its height by `8px`, which visibly changes the button's prominence. **Borderline**
-> — reads as a bugfix, but the result is a real UX change. No reviews at all
-> (merged unreviewed).
->
-> **🚩 [#1501 — Update empty-state copy](https://github.com/acme/web/pull/1501)**
-> *Author: @riley-eng · merged Jun 20*
-> Rewrote the empty-state message on the dashboard from "No data yet" to "Nothing
-> here — connect a source to get started" and added a secondary link. User-facing
-> copy change, reviewed by **@another-eng** only.
->
-> ---
->
-> **Summary:** 3 of 9 user-facing PRs shipped without design review.
-> Two of the three were authored by **@sam-eng** and both touch conversion
-> surfaces (pricing, checkout) — worth a conversation about looping design in on
-> that area, rather than treating these as one-offs. #1492 in particular merged
-> with no review of any kind.
+> **Summary:** Two of the three are from **@sam-eng** and both touch conversion
+> surfaces (pricing, checkout) — worth looping design in on that area rather than
+> treating these as one-offs. #1492 also merged with no review of any kind.
 
 When scoped to a focus area (e.g. `checkout flow`), the counts narrow to just
 that area: *"3 flagged out of 5 merged PRs touching `Checkout/` in this window."*
