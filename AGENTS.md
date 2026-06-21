@@ -10,7 +10,8 @@ without any designer reviewing them.
 this repo is a thin adapter that delegates to it:
 
 - [`SKILL.md`](SKILL.md) — Claude Code / Claude apps skill wrapper.
-- [`install.sh`](install.sh) — copies `prompt.md` into each tool's config dir.
+- [`install.sh`](install.sh) — bash installer; copies `prompt.md` into each tool's config dir.
+- [`bin/cli.js`](bin/cli.js) — dependency-free Node installer for `npx`; same behavior as `install.sh`.
 
 If you change the audit behavior, edit `prompt.md` only, then re-run `install.sh`
 so the installed copies stay in sync. Do not fork the instructions into the

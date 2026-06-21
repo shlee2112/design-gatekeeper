@@ -1,0 +1,40 @@
+{
+  "name": "design-gatekeeper",
+  "version": "1.0.0",
+  "description": "Audit a GitHub repo's merge history for UI/UX/usability changes that shipped without a designer reviewing them. A tool-agnostic prompt for Claude Code, Codex, Cursor, and other agentic dev tools.",
+  "bin": {
+    "design-gatekeeper": "bin/cli.js"
+  },
+  "files": [
+    "bin/cli.js",
+    "prompt.md",
+    "SKILL.md",
+    "AGENTS.md",
+    "install.sh"
+  ],
+  "keywords": [
+    "design",
+    "design-review",
+    "ux",
+    "code-review",
+    "github",
+    "pull-requests",
+    "agent",
+    "skill",
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shlee2112/design-gatekeeper.git"
+  },
+  "homepage": "https://github.com/shlee2112/design-gatekeeper#readme",
+  "bugs": {
+    "url": "https://github.com/shlee2112/design-gatekeeper/issues"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

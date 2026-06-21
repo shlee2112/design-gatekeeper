@@ -33,7 +33,18 @@ The audit is **read-only** — it never writes to your repo or to GitHub.
 
 ## Install
 
-Clone the repo, then install for whichever tools you use:
+### Quickest — `npx` (no clone)
+
+```bash
+npx github:shlee2112/design-gatekeeper            # install for every supported tool
+npx github:shlee2112/design-gatekeeper claude     # or name tools: claude | codex | cursor
+```
+
+This runs straight from GitHub — nothing to publish, nothing to clone. It copies
+[`prompt.md`](prompt.md) into each tool's config directory under the name that
+tool expects. Re-run it any time to pull updates.
+
+### Alternative — clone + script
 
 ```bash
 git clone git@github.com:shlee2112/design-gatekeeper.git
@@ -42,8 +53,7 @@ cd design-gatekeeper
 ./install.sh claude      # or name specific tools: claude | codex | cursor
 ```
 
-The installer copies [`prompt.md`](prompt.md) into each tool's config directory
-under the name that tool expects. Re-run it any time you pull updates.
+`install.sh` (bash) and the `npx` CLI do the same thing — use whichever you prefer.
 
 ### Where it lands (and manual install)
 
